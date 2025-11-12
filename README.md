@@ -25,7 +25,7 @@ A dark theme for [Zed Editor](https://zed.dev) inspired by JetBrains IDEs, featu
    ```
 
 3. **Copy the theme file:**
-   
+
    Download or copy `efa-dark.json` to your themes directory:
    ```bash
    cp efa-dark.json ~/.config/zed/themes/
@@ -128,7 +128,7 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 
 ## License
 
-This theme is available for personal and commercial use.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
