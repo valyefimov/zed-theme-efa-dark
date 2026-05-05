@@ -262,7 +262,7 @@
           },
           "link_uri": {
             "color": "#548AF7ff",
-            "font_style": "underline",
+            "font_style": "normal",
             "font_weight": null
           },
           "namespace": {

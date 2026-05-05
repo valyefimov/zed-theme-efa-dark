@@ -1,74 +1,77 @@
 # Efa Dark Theme for Zed
 
-A dark theme for [Zed Editor](https://zed.dev) inspired by JetBrains IDEs, featuring carefully crafted colors for optimal readability and reduced eye strain during long coding sessions.
+A dark theme extension for [Zed](https://zed.dev), inspired by JetBrains IDEs and tuned for long coding sessions with balanced contrast.
 
 ## Theme Preview
 
+![Efa Dark screenshot](screenshots/efa-dark-theme-preview.png)
+
 **Efa Dark** features:
-- Deep dark background (#1E1F22) for comfortable viewing
-- Syntax highlighting with vibrant but balanced colors
+- Deep dark background (`#1E1F22`) for comfortable viewing
+- Vibrant but controlled syntax highlighting
 - Distinct colors for keywords, strings, functions, and types
-- Support for italic styles on comments, booleans, and constants
-- Terminal color scheme that matches the editor aesthetic
+- Italic styling for comments, booleans, and constants
+- Matching terminal ANSI palette
 
-## Installation
+## Repository Layout
 
-### Method 1: Manual Installation (Recommended)
+This repository is packaged as a Zed extension:
 
-1. **Locate your Zed themes directory:**
-   - **macOS/Linux**: `~/.config/zed/themes/`
-   - **Windows**: `%APPDATA%\Zed\themes\`
-
-2. **Create the themes directory if it doesn't exist:**
-   ```bash
-   mkdir -p ~/.config/zed/themes
-   ```
-
-3. **Copy the theme file:**
-
-   Download or copy `efa-dark.json` to your themes directory:
-   ```bash
-   cp efa-dark.json ~/.config/zed/themes/
-   ```
-
-4. **Activate the theme in Zed:**
-   - Open Zed Editor
-   - Open the Command Palette (`Cmd+Shift+P` on macOS, `Ctrl+Shift+P` on Windows/Linux)
-   - Type "theme selector: toggle" and press Enter
-   - Search for "Efa Dark" and select it
-
-### Method 2: Using Git Clone
-
-Clone this repository directly into your Zed themes directory:
-
-```bash
-cd ~/.config/zed/themes/
-git clone https://github.com/yourusername/zed-theme-efa-dark.git
+```text
+.
+├── extension.toml
+├── screenshots/
+│   └── efa-dark-theme-preview.png
+├── themes/
+│   └── efa-dark.json
+├── LICENSE
+└── README.md
 ```
 
-Then copy the theme file:
+## Local Development & Testing
+
+1. Open Zed and run `zed: extensions` from the command palette.
+2. Click **Install Dev Extension**.
+3. Select this repository folder.
+4. Open the theme selector with `ctrl-k ctrl-t` (`cmd-k cmd-t` on macOS).
+5. Select **Efa Dark** and verify UI/syntax colors.
+
+If the theme does not appear, run `zed: open log` and check extension loading output.
+
+## Publishing to Zed Extensions
+
+To publish this theme in the official Zed extension registry:
+
+1. Push this repository to GitHub.
+2. Fork [`zed-industries/extensions`](https://github.com/zed-industries/extensions).
+3. In your fork, add this repo as a submodule:
+
 ```bash
-cp zed-theme-efa-dark/efa-dark.json ./
+git submodule add https://github.com/valyefimov/zed-theme-efa-dark.git extensions/efa-dark-theme
+git add extensions/efa-dark-theme
 ```
 
-### Method 3: Via Zed Settings
+4. Add an entry to the top-level `extensions.toml` in the fork:
 
-1. Open Zed's settings file (`Cmd+,` or via menu: Zed → Settings)
-2. Manually add the theme JSON content to your themes configuration
-3. Restart Zed and select "Efa Dark" from the theme selector
+```toml
+[efa-dark-theme]
+submodule = "extensions/efa-dark-theme"
+version = "0.0.1"
+```
 
-## Verifying Installation
+5. Run:
 
-After installation, verify the theme is available:
+```bash
+pnpm sort-extensions
+```
 
-1. Open Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`)
-2. Type "theme selector"
-3. Look for "Efa Dark" in the list
-4. Select it to apply
+6. Commit, push, and open a pull request to `zed-industries/extensions`.
+
+Once the PR is merged, the extension becomes available in Zed’s extension store.
 
 ## Configuration
 
-Once installed, you can set Efa Dark as your default theme in your Zed settings:
+Set the theme directly in Zed settings:
 
 ```json
 {
@@ -76,7 +79,7 @@ Once installed, you can set Efa Dark as your default theme in your Zed settings:
 }
 ```
 
-Or configure it to automatically switch based on system appearance:
+Or keep dynamic light/dark mode:
 
 ```json
 {
@@ -90,37 +93,14 @@ Or configure it to automatically switch based on system appearance:
 
 ## Color Palette
 
-Key colors used in this theme:
-
 - **Background**: `#1E1F22`
 - **Foreground**: `#BCBEC4`
-- **Blue (Functions)**: `#56A8F5`
-- **Orange (Keywords)**: `#CF8E6D`
-- **Green (Strings)**: `#6AAB73`
-- **Cyan (Numbers)**: `#2AACB8`
-- **Magenta (Properties)**: `#C77DBB`
-- **Teal (Types)**: `#16BAAC`
-
-## Troubleshooting
-
-### Theme not appearing in the list
-- Ensure the `efa-dark.json` file is in the correct directory
-- Restart Zed Editor
-- Check that the JSON file is valid (no syntax errors)
-
-### Colors look different than expected
-- Make sure you're using the latest version of Zed Editor
-- Check that no other extensions are overriding the theme colors
-- Verify your monitor's color calibration settings
-
-## Contributing
-
-Contributions are welcome! If you find any issues or have suggestions for improvements:
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
+- **Blue (functions)**: `#56A8F5`
+- **Orange (keywords)**: `#CF8E6D`
+- **Green (strings)**: `#6AAB73`
+- **Cyan (numbers)**: `#2AACB8`
+- **Magenta (properties)**: `#C77DBB`
+- **Teal (types)**: `#16BAAC`
 
 ## Author
 
@@ -128,8 +108,4 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-Inspired by the JetBrains IDE color schemes, particularly IntelliJ IDEA's dark themes.
+MIT — see [LICENSE](LICENSE).
