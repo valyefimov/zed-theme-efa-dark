@@ -56,7 +56,7 @@ git add extensions/efa-dark-theme
 ```toml
 [efa-dark-theme]
 submodule = "extensions/efa-dark-theme"
-version = "0.0.1"
+version = "1.0.0"
 ```
 
 5. Run:
