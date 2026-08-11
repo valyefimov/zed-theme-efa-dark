@@ -28,6 +28,23 @@ This repository is packaged as a Zed extension:
 └── README.md
 ```
 
+## Installation
+
+Install directly from Zed's extension registry:
+
+1. Open the command palette (`cmd-shift-p` on macOS, `ctrl-shift-p` elsewhere) and run `zed: extensions`.
+2. Search for **efa dark**.
+3. Click **Install** on **Efa Dark Theme**.
+4. Open the theme selector with `cmd-k cmd-t` (`ctrl-k ctrl-t` on Linux/Windows) and select **Efa Dark**.
+
+To set it permanently, add to your Zed `settings.json`:
+
+```json
+{
+  "theme": "Efa Dark"
+}
+```
+
 ## Local Development & Testing
 
 1. Open Zed and run `zed: extensions` from the command palette.
